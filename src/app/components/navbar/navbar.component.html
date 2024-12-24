@@ -1,0 +1,27 @@
+<div class="phone-number">
+  <p>+34 977 702 779</p>
+</div>
+
+<div class="navbar" [class.show]="isMenuOpen">
+  <!-- Logo -->
+  <div class="navbar-logo">
+    <img src="assets/images/logo.png" alt="Logo" class="logo" />
+  </div>
+
+  <!-- Botó per desplegar el menú en mòbils -->
+  <button class="navbar-toggler" type="button" aria-label="Toggle navigation" (click)="toggleMenu()">
+    ☰
+  </button>
+
+  <!-- Links (sense funcionalitat encara) -->
+  <div class="navbar-links">
+    <button tuiButton appearance="flat" size="m">Funcionalidades</button>
+    <button tuiButton appearance="flat" size="m">Precio</button>
+    <button tuiButton appearance="flat" size="m">Contacto</button>
+  </div>
+
+  <!-- Accions -->
+  <div class="navbar-actions">
+    <button appearance="custom" tuiButton type="button">Pedir una demo</button>
+  </div>
+</div>

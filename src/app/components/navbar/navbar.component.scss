@@ -1,0 +1,102 @@
+[tuiWrapper][data-appearance='custom'] {
+  background: #007bff; // Blau principal
+  color: #fff;
+
+  // Estils per a l'efecte hover
+  &:hover {
+    background: #0056b3; // Blau més fosc per a l'hover
+  }
+
+  // Estils per a l'efecte active
+  &:active {
+    background: #004085; // Blau encara més fosc per a l'active
+  }
+
+  // Estils per a l'efecte disabled
+  &[disabled] {
+    background: #cce5ff; // Blau clar per a l'estat disabled
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1rem;
+  flex-wrap: wrap;
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      margin-right: 0.5rem;
+    }
+
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #343a40;
+    }
+  }
+
+  .navbar-toggler {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff; // Blau principal per a la icona del menú
+  }
+
+  .navbar-links {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      color: #007bff; // Blau principal per als botons
+      &:hover {
+        color: #0056b3; // Blau més fosc per a l'hover dels botons
+      }
+    }
+  }
+
+  .navbar-actions {
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      color: #007bff; // Blau principal per als botons
+    }
+  }
+}
+
+.phone-number {
+  text-align: right;
+  padding: 0rem 1rem;
+  color: #007bff; // Blau principal per al número de telèfon
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    background: linear-gradient(90deg, #4a90e2, #63f5aa); // Gradient similar al del hero
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  
+    .navbar-links a, 
+    .navbar-actions button {
+      color: white; // Blanc per contrastar amb el gradient
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+  
+      &:hover {
+        color: #dff9ff; // Color més clar al passar per sobre
+      }
+    }
+  }
+}
