@@ -1,27 +1,43 @@
-<div class="phone-number">
-  <p>+34 977 702 779</p>
-</div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-<div class="navbar" [class.show]="isMenuOpen">
+<div class="navbar" [class.scrolled]="isScrolled">
   <!-- Logo -->
   <div class="navbar-logo">
-    <img src="assets/images/logo.png" alt="Logo" class="logo" />
+    <a [routerLink]="['/']" (click)="closeMenu()">
+      <img src="assets/images/logo.png" alt="Logo" class="logo" />
+    </a>
   </div>
 
   <!-- Botó per desplegar el menú en mòbils -->
-  <button class="navbar-toggler" type="button" aria-label="Toggle navigation" (click)="toggleMenu()">
+  <button
+    class="navbar-toggler"
+    type="button"
+    aria-label="Toggle navigation"
+    (click)="toggleMenu()"
+  >
     ☰
   </button>
 
-  <!-- Links (sense funcionalitat encara) -->
-  <div class="navbar-links">
-    <button tuiButton appearance="flat" size="m">Funcionalidades</button>
-    <button tuiButton appearance="flat" size="m">Precio</button>
-    <button tuiButton appearance="flat" size="m">Contacto</button>
+  <!-- Links -->
+  <div class="navbar-links" [class.show]="isMenuOpen">
+    <button tuiButton appearance="flat" size="m" [routerLink]="['/funcionalidades']" (click)="closeMenu()">
+      Funcionalidades
+    </button>
+    <button tuiButton appearance="flat" size="m" [routerLink]="['/precios']" (click)="closeMenu()">
+      Precio
+    </button>
+    <button tuiButton appearance="flat" size="m" [routerLink]="['/contact']" (click)="closeMenu()">
+      Contacto
+    </button>
   </div>
 
   <!-- Accions -->
-  <div class="navbar-actions">
-    <button appearance="custom" tuiButton type="button">Pedir una demo</button>
+  <div class="navbar-actions" [class.show]="isMenuOpen">
+    <div class="phone-number">
+      <p>+34 977 702 779</p>
+    </div>
+    <button appearance="custom" tuiButton type="button" [routerLink]="['/pedir_una_demo']" (click)="closeMenu()">
+      <i class="fas fa-calendar-alt"></i> Pedir una demo
+    </button>
   </div>
 </div>

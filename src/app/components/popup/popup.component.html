@@ -1,0 +1,16 @@
+<div *ngIf="showPopup" id="popup" class="popup shadow-lg rounded-3 p-4">
+    <button class="close-btn" (click)="closePopup()">✖</button>
+    <h2 class="popup-title">✨ ¿Quieres reducir el tiempo de gestión horaria un 50%?</h2>
+    <p class="popup-text">
+        Descubre cómo nuestro sistema automatizado puede ayudarte a ahorrar tiempo desde hoy mismo.
+    </p>
+    <div class="popup-buttons">
+      <button class="btn btn-primary" [routerLink]="['/precios']">
+        {{ linkText }}
+      </button>
+      <a class="popup-link" (click)="dontShowAgain()">
+        No mostrar más este mensaje
+      </a>
+    </div>
+  </div>
+  

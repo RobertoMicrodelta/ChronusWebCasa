@@ -1,0 +1,156 @@
+<div class="container my-5">
+  <!-- Mensaje de carga (mientras se envía el correo) -->
+  <div *ngIf="isLoading" class="alert alert-info mt-3" role="alert">
+    Enviando solicitud... Por favor, espere.
+  </div>
+
+  <!-- Mensaje de éxito (después de enviar el correo) -->
+  <div *ngIf="showSuccessMessage" class="alert alert-success mt-3" role="alert">
+    ¡Gracias por tu solicitud! Un administrador se pondrá en contacto contigo lo
+    más pronto posible.
+  </div>
+
+  <div
+    class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg bg-light"
+  >
+    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+      <h1 class="display-4 fw-bold lh-1 text-primary">Solicita una demo</h1>
+      <p class="lead text-muted">
+        Completa el siguiente formulario para que podamos ofrecerte una demo
+        personalizada según el tamaño de tu equipo.
+      </p>
+
+      <!-- Desplegable para empleados -->
+      <div class="mb-4">
+        <label for="employeeCount" class="form-label fw-bold text-secondary"
+          >¿Cuántos empleados tienes?</label
+        >
+        <select
+          id="employeeCount"
+          class="form-select rounded-pill border-primary"
+          [(ngModel)]="selectedEmployeeCount"
+          (change)="onEmployeeCountChange()"
+          required
+        >
+          <option value="" disabled selected>
+            Selecciona el rango de empleados
+          </option>
+          <option *ngFor="let option of employeeOptions" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+        <div *ngIf="!selectedEmployeeCount" class="text-danger">
+          Este campo es obligatorio
+        </div>
+      </div>
+
+      <!-- Campos adicionales -->
+      <div *ngIf="showAdditionalFields" class="mt-4">
+        <div class="mb-3">
+          <label for="name" class="form-label fw-bold text-secondary"
+            >Nombre</label
+          >
+          <input
+            type="text"
+            id="name"
+            class="form-control rounded-pill border-primary"
+            placeholder="Introduce tu nombre"
+            [(ngModel)]="formData.name"
+            name="name"
+            required
+          />
+          <div *ngIf="!formData.name" class="text-danger">
+            Este campo es obligatorio
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label fw-bold text-secondary"
+            >Correo electrónico</label
+          >
+          <input
+            type="email"
+            id="email"
+            class="form-control rounded-pill border-primary"
+            placeholder="Introduce tu correo electrónico"
+            [(ngModel)]="formData.email"
+            name="email"
+            required
+            email
+          />
+          <div *ngIf="!formData.email" class="text-danger">
+            Este campo es obligatorio
+          </div>
+          <div
+            *ngIf="formData.email && !validEmail(formData.email)"
+            class="text-danger"
+          >
+            Introduce un correo electrónico válido
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="phone" class="form-label fw-bold text-secondary"
+            >Teléfono</label
+          >
+          <input
+            type="tel"
+            id="phone"
+            class="form-control rounded-pill border-primary"
+            placeholder="Introduce tu teléfono"
+            [(ngModel)]="formData.phone"
+            name="phone"
+            required
+            pattern="^\+?[0-9]{10,15}$"
+          />
+          <div *ngIf="!formData.phone" class="text-danger">
+            Este campo es obligatorio
+          </div>
+          <div
+            *ngIf="formData.phone && !validPhone(formData.phone)"
+            class="text-danger"
+          >
+            Introduce un número de teléfono válido (10-15 dígitos)
+          </div>
+        </div>
+
+        <!-- Botó Enviar -->
+        <button
+          type="button"
+          class="btn btn-primary btn-lg mt-3 w-100 shadow-sm rounded-pill"
+          (click)="sendDemoRequest()"
+        >
+          Enviar
+        </button>
+        <p class="info">
+          Microdelta Sistemes Informàtics, S.L. es el responsable de la recogida
+          y tratamiento de sus datos con la finalidad de gestionar su registro
+          como usuario y el mantenimiento de su cuenta. La base jurídica para
+          este tratamiento reside en su consentimiento. No está previsto ceder
+          sus datos a terceros. Le recordamos que tiene el derecho a acceder,
+          rectificar y suprimir sus datos personales, así como otros derechos,
+          como se explica en la
+          <a [routerLink]="['/politica_de_privacitat']"
+            >política de privacidad</a
+          >
+        </p>
+      </div>
+
+              <!-- reCAPTCHA -->
+              <div
+              class="g-recaptcha"
+              data-sitekey="6LdmssYqAAAAAA_0OLJ5MlWY5eoxAvLR7gtTqWCq"
+            ></div>
+    </div>
+
+    <!-- Imatge -->
+    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+      <img
+        class="rounded-lg-3"
+        src="assets/images/solicitarUnaDemo.jpg"
+        alt="Logo"
+        width="450"
+      />
+    </div>
+  </div>
+</div>

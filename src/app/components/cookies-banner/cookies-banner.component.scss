@@ -1,0 +1,117 @@
+.cookies-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Fons més suau */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px); /* Fons borroso més suau */
+  }
+  
+  .cookies-banner {
+    position: relative;
+    width: 500px; /* Card més gran */
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Ombra més suau */
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+  
+    .card-header {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #333;
+      margin: 0;
+    }
+  
+    .card-body {
+      padding: 20px;
+    }
+  
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center;
+  
+      .btn {
+        padding: 12px;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        background-color: #2196F3; /* Blau clar */
+        color: white;
+        transition: 0.3s background-color ease;
+  
+        &:hover {
+          background-color: #1976D2; /* Blau fosc al passar el ratolí */
+        }
+      }
+    }
+  
+    .cookies-preferences {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+  
+      h2 {
+        color: #333;
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+      }
+  
+      .preferences {
+        margin-top: 10px;
+        label {
+          display: block;
+          margin-bottom: 12px;
+          font-size: 1rem;
+          color: #555;
+          input {
+            margin-right: 10px;
+          }
+        }
+      }
+  
+      .preferences-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+  
+        .btn-save,
+        .btn-cancel {
+          padding: 12px 20px;
+          border-radius: 6px;
+          font-weight: 500;
+          cursor: pointer;
+          font-size: 1rem;
+          border: none;
+          background-color: #2196F3; /* Blau clar */
+          color: white;
+          transition: 0.3s background-color ease;
+        }
+  
+        .btn-save:hover,
+        .btn-cancel:hover {
+          background-color: #1976D2; /* Blau fosc al passar el ratolí */
+        }
+      }
+    }
+  }
+  

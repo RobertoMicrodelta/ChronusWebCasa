@@ -1,0 +1,330 @@
+.hero-card-container {
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-card-content {
+  display: flex;
+  gap: 3rem;
+  max-width: 1180px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(128, 128, 128, 0.25);
+  padding: 3rem;
+  min-height: 600px;
+  margin: 3.8rem;
+}
+
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.label-section h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, #4a90e2, #63f5aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.label-section p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: #606060;
+  line-height: 1.6;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-frame {
+  width: 100%;
+  height: 20rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.pricing-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  margin: 6rem;
+
+  .pricing-title {
+    font-size: 3.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #4a90e2, #63f5aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .pricing-subtitle {
+    font-size: 1.05rem;
+    color: #606060;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .pricing-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .pricing-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 1rem;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .plan-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+
+      .plan-info {
+        text-align: left;
+
+        .plan-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #4a90e2;
+        }
+
+        .plan-subtitle {
+          font-size: 0.9rem;
+          color: #888;
+          margin-top: 0.3rem;
+        }
+      }
+
+      .price {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #333;
+
+        .currency {
+          font-size: 1.2rem;
+          vertical-align: top;
+        }
+      }
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      text-align: left;
+
+      li {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: #fc5555;
+      text-align: left;
+      margin-top: 1rem;
+      border-top: 1px solid #ddd;
+      padding-top: 0.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #4a90e2, #63f5aa);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: linear-gradient(45deg, #63f5aa, #4a90e2);
+      }
+
+      &.attention {
+        animation: pulse 2s infinite;
+      }
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 2rem;
+  background-color: #f4f4f4;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 14rem;
+  flex-wrap: wrap;
+
+  .hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+    .left-section {
+      flex: 1;
+      text-align: left;
+      max-width: 50%;
+      margin-bottom: 2rem;
+
+      .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #333;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .app-links {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        .app-link {
+          display: inline-block;
+          width: 120px;
+          height: 40px;
+
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    .right-section {
+      flex: 1;
+      max-width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+
+      .hero-image {
+        max-width: 900px;
+        height: 400px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-card-container {
+    padding: 2rem;
+
+    .hero-card-content {
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+  }
+
+  .label-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .label-section p{
+    font-size: 1rem;
+  }
+
+  .image-frame{
+    width: 300px;
+    height: 220px;
+  }
+
+  .pricing-container {
+    margin: 2rem;
+    padding: 2rem 1rem;
+
+    .pricing-cards {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .pricing-card {
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  .hero-container {
+    padding: 3rem 1rem;
+
+    .hero-content {
+      flex-direction: column;
+      align-items: center;
+
+      .left-section {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .right-section {
+        max-width: 100%;
+        margin-top: 2rem;
+
+        .hero-image {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ import {TuiPaymentSystem} from '@taiga-ui/addon-commerce';
 })
 export class AppComponent {
   title = 'prova';
+  
 
   readonly paymentSystem: TuiPaymentSystem = 'mir';
   readonly brandLogo = 'https://ng-web-apis.github.io/dist/assets/images/web-api.svg';

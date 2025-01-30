@@ -1,0 +1,178 @@
+<!-- Contact Section - Hero -->
+<div class="hero-card-container">
+  <div class="hero-card-content">
+    <div class="left-section">
+      <div class="label-section">
+        <h1>Contacta con nosotros</h1>
+        <p>Para obtener más información acerca de Chronus TIME.</p>
+      </div>
+    </div>
+
+    <div class="right-section">
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.5489558768604!2d0.5781609765351857!3d40.7059303379864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a0fe72f1be92b1%3A0xc48bb7e4a856f4ce!2sMicrodelta%20Sistemes%20Inform%C3%A0tics%20S.L.!5e0!3m2!1ses!2ses!4v1736850976713!5m2!1ses!2ses"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Info and Form -->
+<div class="contact-container">
+  <div class="contact-left">
+    <div class="contact-item">
+      <div class="contact-info">
+        <h3 class="contact-title">Dirección</h3>
+        <p class="contact-subtitle">
+          Microdelta Sistemes informàtics S.L.<br />
+          Sebastià Joan Arbó, 25 | 43870 Amposta (TGN)
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-info">
+        <h3 class="contact-title">Horario</h3>
+        <p class="contact-subtitle">Lunes - Viernes</p>
+        <p class="contact-subtitle">9:00 ----------- 19:30</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-info">
+        <h3 class="contact-title">Correo</h3>
+        <p class="contact-subtitle">info&#64;gestionvacaciones.com</p>
+        <p class="contact-subtitle">¡Envia tus consultas!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-right">
+    <h2 class="form-title">Envíanos tu mensaje</h2>
+    <form class="contact-form" (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm">
+      <div class="form-group">
+        <label for="name">Tu Nombre</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="formData.name"
+          required
+          #name="ngModel"
+        />
+        <div *ngIf="name.invalid && name.touched" class="error">
+          Este campo es obligatorio.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo Electrónico</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="formData.email"
+          required
+          email
+          #email="ngModel"
+        />
+        <div *ngIf="email.invalid && email.touched" class="error">
+          Por favor, ingresa un correo electrónico válido.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Teléfono</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          [(ngModel)]="formData.phone"
+          required
+          pattern="^\+?[0-9]{10,15}$"
+          #phone="ngModel"
+        />
+        <div *ngIf="phone.invalid && phone.touched" class="error">
+          Ingresa un número de teléfono válido (10-15 dígitos).
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Mensaje</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          [(ngModel)]="formData.message"
+          required
+          #message="ngModel"
+        ></textarea>
+        <div *ngIf="message.invalid && message.touched" class="error">
+          Este campo es obligatorio.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div
+          class="g-recaptcha"
+          data-sitekey="6Lc9j8UqAAAAACGtunZmWhlXrMIizk8kF8k0blc7"
+        ></div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn"
+        [disabled]="contactForm.invalid || isLoading"
+      >
+        {{ isLoading ? "Enviando..." : "Enviar Mensaje" }}
+      </button>
+
+      <div class="accept_pricicy_policy">
+        <label for="privacyPolicy" class="accept_pricicy_policy">
+          Acepto la política de privacidad de Chronus TIME.
+        </label>
+        <input
+          type="checkbox"
+          id="privacyPolicy"
+          name="privacyPolicy"
+          [(ngModel)]="acceptPrivacyPolicy"
+          required
+          #privacyPolicy="ngModel"
+        />
+        <div
+          *ngIf="privacyPolicy.invalid"
+          class="error"
+        >
+          Debes aceptar la política de privacidad de la empresa para poder enviar el mensaje.
+        </div>
+      </div>
+    </form>
+    <p class="info">
+      Microdelta Sistemes Informàtics, S.L. es el responsable de la recogida
+      y tratamiento de sus datos con la finalidad de gestionar su registro
+      como usuario y el mantenimiento de su cuenta. La base jurídica para
+      este tratamiento reside en su consentimiento. No está previsto ceder
+      sus datos a terceros. Le recordamos que tiene el derecho a acceder,
+      rectificar y suprimir sus datos personales, así como otros derechos,
+      como se explica en la
+      <a [routerLink]="['/politica_de_privacitat']"
+        >política de privacidad</a
+      >
+    </p>
+
+    <div *ngIf="isLoading" class="loading-message">
+      <p>Enviando...</p>
+    </div>
+
+    <div *ngIf="showSuccessMessage" class="success-message">
+      <p>Tu mensaje ha sido enviado exitosamente.</p>
+    </div>
+  </div>
+</div>

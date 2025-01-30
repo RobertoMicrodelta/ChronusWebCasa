@@ -1,0 +1,41 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<div class="hero-container">
+  <div class="hero-content">
+    <!-- Secció Dreta: Imatge del mòbil -->
+    <div class="right-section">
+      <div class="smartphone-container">
+        <div class="smartphone">
+          <div class="screen">
+            <img src="assets/images/prova1.png" alt="App Interface" class="app-interface">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secció Esquerra: Text i icones -->
+    <div class="left-section">
+      <div class="label-section">
+        <h1>Control Horario. Fichajes.</h1>
+        <div class="features-list-row">
+          <div class="feature-item">
+            <i class="bi bi-person-check"></i>
+            <p>Control de fichajes para empleados.</p>
+          </div>
+          <div class="feature-item">
+            <i class="bi bi-clock-history"></i>
+            <p>Gestión de horarios laborales.</p>
+          </div>
+          <div class="feature-item">
+            <i class="bi bi-tablet"></i>
+            <p>Fichajes desde móvil, tablet, PC.</p>
+          </div>
+        </div>
+      </div>
+      <div class="button-group">
+        <button class="btn primary" [routerLink]="['/pedir_una_demo']">Continuar</button>
+        <button class="btn secondary" (click)="openLink()">Acceso panel gestión →</button>
+      </div>
+    </div>
+  </div>
+</div>

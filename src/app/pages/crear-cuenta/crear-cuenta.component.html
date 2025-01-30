@@ -1,0 +1,96 @@
+<!-- Hero Section - Registro -->
+<div class="hero-card-container">
+  <div class="hero-card-content">
+    <!-- Secció Esquerra: Textos -->
+    <div class="left-section">
+      <div class="label-section">
+        <h1>Registro</h1>
+        <p>
+          Rellena todos los datos para proceder a la creación de un entorno de
+          pruebas. Totalmente gratis.
+        </p>
+
+        <p style="font-size: 17px; color: rgba(171, 17, 17, 0.795);">
+          Una vez rellene el formulario se envía un correo al administrador y se
+          encargará de crear la cuenta con todos los servicios necesarios
+        </p>
+      </div>
+    </div>
+
+    <!-- Secció Dreta: Foto -->
+    <div class="right-section">
+      <img
+        class="image-frame"
+        src="/assets/images/registro.png"
+        alt="Imatge de registre"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Formulario de Registro -->
+<div class="registration-form-container">
+  <h2>Crear Cuenta Gratuita</h2>
+  <form class="registration-form">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" required />
+    </div>
+
+    <div class="form-group">
+      <label for="correo">Correo Electrónico</label>
+      <input type="email" id="correo" name="correo" required />
+    </div>
+
+    <div class="form-group">
+      <label for="telefono">Teléfono</label>
+      <input type="tel" id="telefono" name="telefono" required />
+    </div>
+
+    <div class="form-group">
+      <label for="pais">País</label>
+      <select id="pais" name="pais" required>
+        <option value="" disabled selected>Selecciona tu país</option>
+        <option *ngFor="let country of countries" [value]="country.code">
+          {{ country.name }}
+        </option>
+      </select>
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    </div>
+
+    <div class="form-group">
+      <label for="contrasena">Contraseña</label>
+      <input
+        type="password"
+        id="contrasena"
+        name="contrasena"
+        required
+        placeholder="Crea una contraseña"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="repetir-contrasena">Repetir Contraseña</label>
+      <input
+        type="password"
+        id="repetir-contrasena"
+        name="repetir-contrasena"
+        required
+        placeholder="Repite la contraseña"
+      />
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn-submit">Crear entorno prueba</button>
+    </div>
+  </form>
+  <p class="info">
+    Microdelta Sistemes Informàtics, S.L. es el responsable de la recogida y
+    tratamiento de sus datos con la finalidad de gestionar su registro como
+    usuario y el mantenimiento de su cuenta. La base jurídica para este
+    tratamiento reside en su consentimiento. No está previsto ceder sus datos a
+    terceros. Le recordamos que tiene el derecho a acceder, rectificar y
+    suprimir sus datos personales, así como otros derechos, como se explica en
+    la <a [routerLink]="['/politica_de_privacitat']">política de privacidad</a>
+  </p>
+</div>

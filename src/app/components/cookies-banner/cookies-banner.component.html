@@ -1,0 +1,54 @@
+<div *ngIf="showBanner" class="cookies-overlay">
+  <div class="cookies-banner card-style">
+    <div class="card-header">
+      <h3 class="card-title">Política de Cookies</h3>
+    </div>
+    <div class="card-body">
+      <p>
+        Utilizamos cookies para mejorar su experiencia. Puedes aceptarlas todas,
+        denegarlas todas o configurar tus preferencias.
+        <a href="/politica_de_cookies">Más información</a>.
+        <!-- [routerLink]="['/politica_de_privacitat']" -->
+      </p>
+      <div class="buttons">
+        <button class="btn btn-accept" (click)="acceptAllCookies()">
+            Aceptar todas
+        </button>
+        <button class="btn btn-decline" (click)="declineAllCookies()">
+            Denegar todas
+        </button>
+        <button class="btn btn-configure" (click)="openPreferences()">
+            Configurar preferencias
+        </button>
+      </div>
+    </div>
+
+    <!-- Diàleg de configuració -->
+    <div *ngIf="showPreferences" class="cookies-preferences shadow-lg">
+      <h2>Configuración de cookies</h2>
+      <p>Selecciona qué cookies quieres activar:</p>
+      <div class="preferences">
+        <label>
+          <input type="checkbox" [(ngModel)]="preferences.necessary" disabled />
+          Cookies necesarias (activadas siempre)
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="preferences.statistics" />
+          Cookies de estadísticas
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="preferences.marketing" />
+          Cookies de marketing
+        </label>
+      </div>
+      <div class="preferences-buttons">
+        <button class="btn btn-save" (click)="savePreferences()">
+            Guardar cookies
+        </button>
+        <button class="btn btn-cancel" (click)="closePreferences()">
+            Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

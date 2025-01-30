@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  actualYear = new Date().getFullYear();
+
+  openGooglePlay() {
+    window.open('https://play.google.com/store/apps/details?id=microdelta.chronustime&hl=es&gl=US', '_blank');
+  }
+
+  openAppleStore() {
+    window.open('https://apps.apple.com/es/app/chronus-time/id1570611343', '_blank');
+  }
+
 }
