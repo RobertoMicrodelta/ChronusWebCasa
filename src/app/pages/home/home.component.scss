@@ -178,3 +178,130 @@
     }
   }
 }
+
+
+/* Secció "Com funciona?" */
+.how-it-works {
+  // background: #f9f9f9;
+  padding: 4rem 6rem;
+  text-align: center;
+  padding-bottom: 12rem;
+  
+  .content {
+    max-width: 1100px;
+    margin: auto;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 3rem;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      
+      .step {
+        flex: 1;
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+
+        i {
+          font-size: 3rem;
+          color: #4a90e2;
+          margin-bottom: 1rem;
+        }
+
+        h4 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+          margin-top: 0.7rem;
+        }
+
+        p {
+          font-size: 1rem;
+          color: #555;
+          margin-top: 1.7em;
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+}
+
+/* Secció "Per què triar-nos?" */
+.why-choose-us {
+  background: linear-gradient(135deg, #007bff9f, #007bffd3);
+  padding: 5rem 6rem;
+  text-align: center;
+  color: white;
+
+  .content {
+    max-width: 1000px;
+    margin: auto;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+
+      li {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        i {
+          font-size: 1.8rem;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+/* Responsivitat */
+@media (max-width: 992px) {
+  .how-it-works, .why-choose-us {
+    padding: 3rem;
+  }
+
+  .steps {
+    flex-direction: column;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+

@@ -3,41 +3,70 @@
 <footer class="footer">
   <div class="container footer-container">
     <div class="footer-section">
-      <h3>Top Products</h3>
-      <ul>
-        <li><a href="#">Chronus Time</a></li>
-        <li><a>Chronus Absence</a></li>
+      <img src="assets/images/logo.png" alt="Logo de la empresa" class="company-logo" />
+      <ul class="social-links">
+        <li>
+          <a href="https://www.instagram.com/microdelta_/" target="_blank">
+            <i class="bi bi-instagram"></i> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/@MicrodeltaSistemesInform%C3%A0tics" target="_blank">
+            <i class="bi bi-youtube"></i> Youtube
+          </a>
+        </li>
       </ul>
     </div>
     <div class="footer-section">
-      <h3>Informació</h3>
+      <h3>Información</h3>
       <ul>
-        <li><a href="/politica_de_cookies">Cookies</a></li>
-        <li><a href="/avis_legal">Avís Legal</a></li>
+        <!-- <li><a href="/politica_de_cookies">Cookies</a></li>
+        <li><a href="/avis_legal">Avís Legal</a></li> -->
+        <li><a [routerLink]="['/politica_de_cookies']">Cookies</a></li>
+        <li><a [routerLink]="['/avis_legal']">Avís Legal</a></li>
       </ul>
     </div>
     <div class="footer-section">
       <h3>Newsletter</h3>
-      <p>You can trust us. We only send promo offers.</p>
-      <form>
-        <input type="email" placeholder="Your Email Address" />
-        <button type="submit">➤</button>
+      <p>Suscríbete para recibir más noticias</p>
+      <form (ngSubmit)="sendNewsletter(newsletterForm)" #newsletterForm="ngForm">
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="correo@gmail.com" 
+          [(ngModel)]="newsletterEmail" 
+          required 
+          email 
+          #email="ngModel" 
+        />
+        <button type="submit" [disabled]="isLoading || email.invalid">{{ isLoading ? "Enviando..." : "➤" }}</button>
       </form>
+      <div *ngIf="email.invalid && email.touched" class="error-message">
+        Por favor, ingresa un correo electrónico válido.
+      </div>
+      <div *ngIf="showSuccessMessage" class="success-message">
+        <p>¡Gracias por suscribirte!</p>
+      </div>
+      <div *ngIf="showErrorMessage" class="error-message">
+        <p>Hubo un problema al enviar tu suscripción. Inténtalo de nuevo.</p>
+      </div>
     </div>
   </div>
 
   <div class="footer-bottom">
     <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center">
       <p>
-        Copyright ©{{ actualYear }} All rights reserved | Microdelta Sistemes
-        Informàtics S.L.
+        Copyright ©{{ actualYear }} All rights reserved | 
+        <a href="https://microdelta.net/" target="_blank" rel="noopener noreferrer">
+          Microdelta Sistemes Informàtics S.L.
+        </a>
       </p>
       <div class="app-links d-flex mt-3 mt-lg-0">
         <a (click)="openAppleStore()">
-          <img src="assets/images/appstore-icon.png" alt="Available on App Store" />
+          <img src="assets/images/app-store.webp" alt="Available on App Store" />
         </a>
         <a (click)="openGooglePlay()">
-          <img src="assets/images/playstore-icon.png" alt="Available on Play Store" />
+          <img src="assets/images/google-play.webp" alt="Available on Play Store" />
         </a>
       </div>
     </div>

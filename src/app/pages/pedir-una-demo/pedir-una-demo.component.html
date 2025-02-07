@@ -23,13 +23,14 @@
       <!-- Desplegable para empleados -->
       <div class="mb-4">
         <label for="employeeCount" class="form-label fw-bold text-secondary"
-          >¿Cuántos empleados tienes?</label
+          >¿Cuántos empleados tienes?<span style="color: red;">*</span></label
         >
         <select
           id="employeeCount"
           class="form-select rounded-pill border-primary"
           [(ngModel)]="selectedEmployeeCount"
           (change)="onEmployeeCountChange()"
+          (blur)="formTouched.employeeCount = true"
           required
         >
           <option value="" disabled selected>
@@ -39,7 +40,7 @@
             {{ option }}
           </option>
         </select>
-        <div *ngIf="!selectedEmployeeCount" class="text-danger">
+        <div *ngIf="formTouched.employeeCount && !selectedEmployeeCount" class="text-danger">
           Este campo es obligatorio
         </div>
       </div>
@@ -48,7 +49,7 @@
       <div *ngIf="showAdditionalFields" class="mt-4">
         <div class="mb-3">
           <label for="name" class="form-label fw-bold text-secondary"
-            >Nombre</label
+            >Nombre<span style="color: red;">*</span></label
           >
           <input
             type="text"
@@ -56,17 +57,17 @@
             class="form-control rounded-pill border-primary"
             placeholder="Introduce tu nombre"
             [(ngModel)]="formData.name"
-            name="name"
+            (blur)="formTouched.name = true"
             required
           />
-          <div *ngIf="!formData.name" class="text-danger">
+          <div *ngIf="formTouched.name && !formData.name" class="text-danger">
             Este campo es obligatorio
           </div>
         </div>
 
         <div class="mb-3">
           <label for="email" class="form-label fw-bold text-secondary"
-            >Correo electrónico</label
+            >Correo electrónico<span style="color: red;">*</span></label
           >
           <input
             type="email"
@@ -74,16 +75,15 @@
             class="form-control rounded-pill border-primary"
             placeholder="Introduce tu correo electrónico"
             [(ngModel)]="formData.email"
-            name="email"
+            (blur)="formTouched.email = true"
             required
             email
           />
-          <div *ngIf="!formData.email" class="text-danger">
+          <div *ngIf="formTouched.email && !formData.email" class="text-danger">
             Este campo es obligatorio
           </div>
           <div
-            *ngIf="formData.email && !validEmail(formData.email)"
-            class="text-danger"
+          *ngIf="formTouched.email && formData.email && !validEmail(formData.email)" class="text-danger"
           >
             Introduce un correo electrónico válido
           </div>
@@ -91,7 +91,7 @@
 
         <div class="mb-3">
           <label for="phone" class="form-label fw-bold text-secondary"
-            >Teléfono</label
+            >Teléfono<span style="color: red;">*</span></label
           >
           <input
             type="tel"
@@ -99,18 +99,17 @@
             class="form-control rounded-pill border-primary"
             placeholder="Introduce tu teléfono"
             [(ngModel)]="formData.phone"
-            name="phone"
+            (blur)="formTouched.phone = true"
             required
-            pattern="^\+?[0-9]{10,15}$"
+            pattern="^\+?[0-9]{9,12}$"
           />
-          <div *ngIf="!formData.phone" class="text-danger">
+          <div *ngIf="formTouched.phone && !formData.phone" class="text-danger">
             Este campo es obligatorio
           </div>
           <div
-            *ngIf="formData.phone && !validPhone(formData.phone)"
-            class="text-danger"
+          *ngIf="formTouched.phone && formData.phone && !validPhone(formData.phone)" class="text-danger"
           >
-            Introduce un número de teléfono válido (10-15 dígitos)
+            Introduce un número de teléfono válido (9-12 dígitos)
           </div>
         </div>
 
@@ -122,6 +121,7 @@
         >
           Enviar
         </button>
+        <span style="color: red; font-size: 13px;">* Campos obligatorios</span>
         <p class="info">
           Microdelta Sistemes Informàtics, S.L. es el responsable de la recogida
           y tratamiento de sus datos con la finalidad de gestionar su registro
@@ -139,7 +139,7 @@
               <!-- reCAPTCHA -->
               <div
               class="g-recaptcha"
-              data-sitekey="6LdmssYqAAAAAA_0OLJ5MlWY5eoxAvLR7gtTqWCq"
+              data-sitekey="6Lc9j8UqAAAAACGtunZmWhlXrMIizk8kF8k0blc7"
             ></div>
     </div>
 
@@ -147,7 +147,7 @@
     <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
       <img
         class="rounded-lg-3"
-        src="assets/images/solicitarUnaDemo.jpg"
+        src="assets/images/solicitarUnaDemo.webp"
         alt="Logo"
         width="450"
       />

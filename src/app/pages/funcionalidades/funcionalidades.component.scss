@@ -160,7 +160,7 @@
 
   .hero-content {
     display: flex;
-    gap: 4rem;
+    // gap: 1rem;
     width: 100%;
     
     /* Sección izquierda (Imatge) */
@@ -172,8 +172,8 @@
       
       .hero-image {
         // width: 70%;
-        max-width: 830px;
-        height: 510px;
+        max-width: 970px;
+        height: 520px;
         border-radius: 10px;
         // object-fit: cover;
         // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 

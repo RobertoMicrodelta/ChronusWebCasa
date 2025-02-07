@@ -9,6 +9,7 @@ import { PoliticaDePrivacitatComponent } from './pages/politica-de-privacitat/po
 import { PoliticaDeCookiesComponent } from './pages/politica-de-cookies/politica-de-cookies.component';
 import { AvisLegalComponent } from './pages/avis-legal/avis-legal.component';
 import { PedirUnaDemoComponent } from './pages/pedir-una-demo/pedir-una-demo.component';
+import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Pàgina principal
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'politica_de_cookies', component: PoliticaDeCookiesComponent }, // Politica de COOKIES
   { path: 'avis_legal', component: AvisLegalComponent }, // Avis Legal
   { path: 'pedir_una_demo', component: PedirUnaDemoComponent }, // Pedir una demo
+  { path: 'sobre_nosotros', component: SobreNosotrosComponent},
   { path: '**', redirectTo: '/' } // Si no es una ruta vàlida, redirigim a la pàgina principal
 ];
 

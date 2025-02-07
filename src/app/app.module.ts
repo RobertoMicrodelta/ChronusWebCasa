@@ -22,6 +22,7 @@ import { AvisLegalComponent } from './pages/avis-legal/avis-legal.component';
 import { PedirUnaDemoComponent } from './pages/pedir-una-demo/pedir-una-demo.component';
 import { FormsModule } from "@angular/forms";
 import { CookieService } from 'ngx-cookie-service';
+import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.component';
 
 
 
@@ -40,6 +41,7 @@ import { CookieService } from 'ngx-cookie-service';
     PoliticaDeCookiesComponent,
     AvisLegalComponent,
     PedirUnaDemoComponent,
+    SobreNosotrosComponent,
   ],
   imports: [
     BrowserModule,

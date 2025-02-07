@@ -32,7 +32,7 @@
         <h3 class="contact-title">Dirección</h3>
         <p class="contact-subtitle">
           Microdelta Sistemes informàtics S.L.<br />
-          Sebastià Joan Arbó, 25 | 43870 Amposta (TGN)
+          Sebastià Joan Arbó, 25 | 43870 Amposta Tarragona
         </p>
       </div>
     </div>
@@ -40,8 +40,8 @@
     <div class="contact-item">
       <div class="contact-info">
         <h3 class="contact-title">Horario</h3>
-        <p class="contact-subtitle">Lunes - Viernes</p>
-        <p class="contact-subtitle">9:00 ----------- 19:30</p>
+        <p class="contact-subtitle">Lunes a Viernes</p>
+        <p class="contact-subtitle">9:00 a 19:30</p>
       </div>
     </div>
 
@@ -58,7 +58,7 @@
     <h2 class="form-title">Envíanos tu mensaje</h2>
     <form class="contact-form" (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm">
       <div class="form-group">
-        <label for="name">Tu Nombre</label>
+        <label for="name">Tu Nombre<span style="color: red;">*</span></label>
         <input
           type="text"
           id="name"
@@ -71,9 +71,9 @@
           Este campo es obligatorio.
         </div>
       </div>
-
+    
       <div class="form-group">
-        <label for="email">Correo Electrónico</label>
+        <label for="email">Correo Electrónico<span style="color: red;">*</span></label>
         <input
           type="email"
           id="email"
@@ -87,25 +87,42 @@
           Por favor, ingresa un correo electrónico válido.
         </div>
       </div>
-
+    
       <div class="form-group">
-        <label for="phone">Teléfono</label>
+        <label for="phone">Teléfono<span style="color: red;">*</span></label>
         <input
           type="tel"
           id="phone"
           name="phone"
           [(ngModel)]="formData.phone"
           required
-          pattern="^\+?[0-9]{10,15}$"
+          pattern="^\+?[0-9]{9,12}$"
           #phone="ngModel"
         />
         <div *ngIf="phone.invalid && phone.touched" class="error">
-          Ingresa un número de teléfono válido (10-15 dígitos).
+          Ingresa un número de teléfono válido (9-12 dígitos).
         </div>
       </div>
-
+    
+      <!-- Nuevo campo Empresa -->
       <div class="form-group">
-        <label for="message">Mensaje</label>
+        <label for="company">Empresa<span style="color: red;">*</span></label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          [(ngModel)]="formData.company"
+          required
+          #company="ngModel"
+        />
+        <div *ngIf="company.invalid && company.touched" class="error">
+          Este campo es obligatorio.
+        </div>
+      </div>
+    
+      <!-- Campo Mensaje a pantalla completa -->
+      <div class="form-group full-width">
+        <label for="message">Mensaje<span style="color: red;">*</span></label>
         <textarea
           id="message"
           name="message"
@@ -118,21 +135,7 @@
           Este campo es obligatorio.
         </div>
       </div>
-
-      <div class="form-group">
-        <div
-          class="g-recaptcha"
-          data-sitekey="6Lc9j8UqAAAAACGtunZmWhlXrMIizk8kF8k0blc7"
-        ></div>
-      </div>
-
-      <button
-        type="submit"
-        class="btn"
-        [disabled]="contactForm.invalid || isLoading"
-      >
-        {{ isLoading ? "Enviando..." : "Enviar Mensaje" }}
-      </button>
+    
 
       <div class="accept_pricicy_policy">
         <label for="privacyPolicy" class="accept_pricicy_policy">
@@ -146,14 +149,28 @@
           required
           #privacyPolicy="ngModel"
         />
-        <div
-          *ngIf="privacyPolicy.invalid"
-          class="error"
-        >
+        <div *ngIf="showPrivacyPolicyError" class="error">
           Debes aceptar la política de privacidad de la empresa para poder enviar el mensaje.
         </div>
       </div>
+
+                    <!-- reCAPTCHA -->
+                    <div
+                    class="g-recaptcha"
+                    data-sitekey="6Lc9j8UqAAAAACGtunZmWhlXrMIizk8kF8k0blc7"
+                  ></div>
+    
+      <button
+        type="submit"
+        class="btn"
+        [disabled]="isLoading"
+        (click)="handleFormSubmit(contactForm)"
+      >
+        {{ isLoading ? "Enviando..." : "Enviar Mensaje" }}
+      </button>
+    
     </form>
+    <span style="color: red; font-size: 13px;">* Campos obligatorios</span>
     <p class="info">
       Microdelta Sistemes Informàtics, S.L. es el responsable de la recogida
       y tratamiento de sus datos con la finalidad de gestionar su registro

@@ -1,0 +1,219 @@
+
+.about-us {
+    padding: 2rem 0;
+  
+    .about-card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+  
+      h3 {
+        font-size: 1.8rem;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+  
+      p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 1.5rem;
+      }
+  
+      .btn {
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &.primary {
+          background: linear-gradient(45deg, #4a90e2, #63f5aa);
+          border: 1px solid black;
+          color: white;
+        }
+
+        &.secondary {
+          background: transparent;
+          border: 1px solid #4a90e2;
+          color: #4a90e2;
+          text-decoration: none;
+        }
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+    }
+
+    .row{
+      margin-top: 10rem;
+      margin-bottom: 8rem;
+    }
+  
+    .innovative-section {
+      background: #f4f4f4;
+      padding: 4rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+  
+      h2 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 1.5rem;
+      }
+  
+      p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+  
+      .image-container {
+        position: relative;
+  
+        img {
+          max-width: 90%;
+          border-radius: 10px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+  
+    .interactive-values {
+      padding: 5rem 6rem;
+      text-align: center;
+      background: linear-gradient(135deg, #007bff6f, #007bffc8);
+      color: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      margin-top: 5rem;
+    
+      h2 {
+        font-size: 2.8rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        line-height: 1.6;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    
+      .values {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+    
+        .value-card {
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(10px);
+          color: white;
+          padding: 2.5rem;
+          border-radius: 15px;
+          width: 28%;
+          min-width: 250px;
+          text-align: center;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          position: relative;
+          overflow: hidden;
+    
+          .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            transition: background 0.3s ease;
+          }
+    
+          i {
+            font-size: 2.5rem;
+            color: white;
+          }
+    
+          h4 {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+          }
+    
+          p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+          }
+    
+          &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+          }
+    
+          &:hover .icon-wrapper {
+            background: white;
+            i {
+              color: #4a90e2;
+            }
+          }
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        text-align: center;
+      }
+  
+      .innovative-section {
+        padding: 3rem;
+        margin-top: 2rem;
+      }
+  
+      .interactive-values {
+        padding: 3rem;
+        margin-top: 3rem;
+  
+        .values {
+          flex-direction: column;
+        }
+
+        .value-card{
+          width: 100%;
+        }
+      }
+    }
+
+    @media (max-width: 992px) {
+      .interactive-values {
+        padding: 4rem 3rem;
+      }
+    
+      .values {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .value-card {
+        width: 80%;
+      }
+    }
+  }
+  
